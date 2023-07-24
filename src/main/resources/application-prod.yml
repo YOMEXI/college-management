@@ -1,6 +1,7 @@
 spring:
-  profiles:
-    active: prod
+  config:
+    activate:
+      on-profile: "dev"
   datasource:
     driver-class-name: org.postgresql.Driver
     url: postgres://gdemxcil:VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD@stampy.db.elephantsql.com/gdemxcil
