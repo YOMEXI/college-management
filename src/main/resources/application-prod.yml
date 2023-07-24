@@ -3,9 +3,9 @@ spring:
     active: prod
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/college
-    username: college
-    password: college123
+    url: postgres://gdemxcil:VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD@stampy.db.elephantsql.com/gdemxcil
+    username: gdemxcil
+    password: VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD
   jpa:
     hibernate:
       ddl-auto: validate
@@ -32,7 +32,7 @@ server:
     enable: true
     schemas: college
     #url: jdbc:postgresql://localhost:5432/college
-    username: college
-    password: college123
+    username: gdemxcil
+    password: VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD
     baseline-description: "init"
     baseline-version: 0
