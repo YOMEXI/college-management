@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: postgres://gdemxcil:VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD@stampy.db.elephantsql.com/gdemxcil
+    url: jdbc:postgresql://stampy.db.elephantsql.com:5432/gdemxcil
     username: gdemxcil
     password: VgK13SGOMMs3aokD2E2_n1j6p7nFB0dD
   jpa:
