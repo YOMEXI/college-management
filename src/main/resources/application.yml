@@ -1,6 +1,6 @@
 spring:
   profile:
-    active: prod
+    active: dev
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/college
