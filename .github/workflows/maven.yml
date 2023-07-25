@@ -29,4 +29,3 @@ jobs:
       #run: mvn -B package --file pom.xml
       #run: mvn clean package -P prod
       run: mvn -P prod clean install
-
