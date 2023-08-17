@@ -8,8 +8,8 @@ spring:
     password: college123
   jpa:
     hibernate:
-      ddl-auto: create
-    show-sql: true
+      ddl-auto: validate
+    show-sql: false
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
@@ -36,3 +36,10 @@ server:
     password: college123
     baseline-description: "init"
     baseline-version: 0
+
+
+security:
+  jwt:
+    token-secret-key: 3777217A25432A462D4A614E645267556B586E3272357538782F413F4428472B
+    refresh-token-expiration: 2800000
+    expiration: 900000000

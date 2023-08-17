@@ -2,11 +2,14 @@ package collegemanagement.faculty;
 
 import collegemanagement.faculty.dto.createFaculty;
 import collegemanagement.faculty.dto.facultyResponse;
+import collegemanagement.shared.exception.CustomApiException;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,12 +27,20 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public facultyResponse createFaculty(createFaculty faculty) {
 
+        var doesFacultyExist = facultyRepository
+                .findByFacultyName(faculty.getFacultyName());
+
+        if(doesFacultyExist.isPresent())
+            throw new CustomApiException(HttpStatus.BAD_REQUEST,
+                    "Faculty Already Exists");
+
         List departmentList =new ArrayList();
 
         FacultyEntity newFaculty = new FacultyEntity();
         newFaculty.setFacultyCode(faculty.getFacultyCode());
         newFaculty.setFacultyName(faculty.getFacultyName());
         newFaculty.setDepartments(departmentList);
+
 
 
         facultyRepository.save(newFaculty);
@@ -49,4 +60,6 @@ public class FacultyServiceImpl implements FacultyService {
 
         return  mappedFaculties;
     }
+
+
 }

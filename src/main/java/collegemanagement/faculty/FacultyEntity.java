@@ -1,7 +1,6 @@
 package collegemanagement.faculty;
 
 import collegemanagement.department.DepartmentEntity;
-import collegemanagement.shared.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
