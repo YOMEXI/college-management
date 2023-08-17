@@ -26,6 +26,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
+      # Step that does that actual cache save and restore
+    - uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
       #run: mvn -B package --file pom.xml
       #run: mvn clean package -P prodss
       run: mvn -P prod clean install
