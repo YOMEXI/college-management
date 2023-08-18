@@ -25,7 +25,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - uses: actions/cache@v3
     - name: Build with Maven
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
       #run: mvn -B package --file pom.xml
       #run: mvn clean package -P prodss
       run: mvn -P prod clean install
