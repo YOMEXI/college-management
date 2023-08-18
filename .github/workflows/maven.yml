@@ -23,6 +23,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
+    - name: Maven cache
     - uses: actions/cache@v1
       with:
         path: ~/.m2/repository
@@ -35,26 +36,3 @@ jobs:
       run: mvn -P prod clean install
     - name: Execute Jar File
       run: sudo kill -9 $(sudo lsof -t -i:7000) & sudo java -jar -Dspring.profiles.active=dev /home/ubuntu/actions-runner/_work/college-management/college-management/target/college-management-0.0.1-SNAPSHOT.jar &
-
-
-
-
-      For completeness, this is an example of how to cache the local Maven repository on subsequent builds:
-
-      steps:
-        # Typical Java workflow steps
-        - uses: actions/checkout@v1
-        - name: Set up JDK 11
-          uses: actions/setup-java@v1
-          with:
-            java-version: 11
-        # Step that does that actual cache save and restore
-        - uses: actions/cache@v1
-          with:
-            path: ~/.m2/repository
-            key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-            restore-keys: |
-              ${{ runner.os }}-maven-
-        # Step that runs the tests
-        - name: Run tests
-          run: mvn test
