@@ -72,6 +72,8 @@ public class SecurityConfig {
             "/v3/api-docs/**",
             "/swagger-ui/**",
            // "/api/v1/staff"
+           "/api/v1/department",
+           "/api/v1/faculty"
     };
 
 }
